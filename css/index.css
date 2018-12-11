@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  font-size: 2rem;
+  color: black;
+
+  z-index: -1;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(#fdfcfb, #e2d1c3);
+  background-size: cover;
+}
+
+.gameboard {
+  background: #000;
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.display {
+  padding-left: 20px;
+}
+
+.header-lg {
+  padding-left: 10px;
+}
+
+.star-rating {
+  display: flex;
+}
+
+.star-rating i {
+  color: yellow;
+  padding: 5px;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.card {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 125px;
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background: white;
+  transform: rotateY(-180deg);
+  transition: all 0.2s;
+}
+
+.card.opened {
+  transform: rotateY(0);
+  background: black;
+}
+
+.card i {
+  color: aliceblue;
+  visibility: hidden;
+}
+
+.opened i {
+  visibility: visible;
+  z-index: 1;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  grid-gap: 20px;
+  width: 100%;
+  max-width: 650px;
+
+  justify-content: space-between;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.modal-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+}
+
+.modal-overlay.active {
+  transform: scale(1);
+}
+
+.modal {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background: #e2d1c3;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-reset {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  ul {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  ul {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .gameboard {
+    grid-template-columns: repeat(7, 1fr);
+    height: auto;
+    width: 100%;
+  }
+
+  .header-lg {
+    font-size: 1em;
+  }
+
+  .display {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 530px) {
+  .header-lg {
+    font-size: 0.8em;
+  }
+
+  .display {
+    font-size: 0.8em;
+  }
+
+  ul {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  }
+
+  .card {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 470px) {
+  .header-lg {
+    font-size: 0.8em;
+  }
+
+  .display {
+    font-size: 0.8em;
+  }
+
+  ul {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+}
